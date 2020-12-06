@@ -215,7 +215,7 @@
 #endif
 
 // Show extra position information with 'M114 D'
-//#define M114_DETAIL
+#define M114_DETAIL
 
 // Show Temperature ADC value
 // Enable for M105 to include ADC values read from temperature sensors.
@@ -771,7 +771,7 @@
  * vibration and surface artifacts. The algorithm adapts to provide the best possible step smoothing at the
  * lowest stepping frequencies.
  */
-//#define ADAPTIVE_STEP_SMOOTHING
+#define ADAPTIVE_STEP_SMOOTHING
 
 /**
  * Custom Microstepping
@@ -909,8 +909,8 @@
 //#define LCD_SHOW_E_TOTAL
 
 #if HAS_GRAPHICAL_LCD && HAS_PRINT_PROGRESS
-  //#define PRINT_PROGRESS_SHOW_DECIMALS // Show progress with decimal digits
-  //#define SHOW_REMAINING_TIME          // Display estimated time to completion
+  #define PRINT_PROGRESS_SHOW_DECIMALS // Show progress with decimal digits
+  #define SHOW_REMAINING_TIME          // Display estimated time to completion
   #if ENABLED(SHOW_REMAINING_TIME)
     //#define USE_M73_REMAINING_TIME     // Use remaining time from M73 command instead of estimation
     //#define ROTATE_PROGRESS_DISPLAY    // Display (P)rogress, (E)lapsed, and (R)emaining time
@@ -1037,7 +1037,7 @@
   /**
    * Auto-report SdCard status with M27 S<seconds>
    */
-  //#define AUTO_REPORT_SD_STATUS
+  #define AUTO_REPORT_SD_STATUS
 
   /**
    * Support for USB thumb drives using an Arduino USB Host Shield or
@@ -1100,7 +1100,7 @@
      *
      * :[ 'LCD', 'ONBOARD', 'CUSTOM_CABLE' ]
      */
-    //#define SDCARD_CONNECTION LCD
+    #define SDCARD_CONNECTION ONBOARD
   #endif
 
 #endif // SDSUPPORT
@@ -1181,7 +1181,7 @@
   //#define STATUS_ALT_BED_BITMAP     // Use the alternative bed bitmap
   //#define STATUS_ALT_FAN_BITMAP     // Use the alternative fan bitmap
   //#define STATUS_FAN_FRAMES 3       // :[0,1,2,3,4] Number of fan animation frames
-  //#define STATUS_HEAT_PERCENT       // Show heating in a progress bar
+  #define STATUS_HEAT_PERCENT       // Show heating in a progress bar
   //#define BOOT_MARLIN_LOGO_SMALL    // Show a smaller Marlin logo on the Boot Screen (saving 399 bytes of flash)
   //#define BOOT_MARLIN_LOGO_ANIMATED // Animated Marlin logo. Costs ~‭3260 (or ~940) bytes of PROGMEM.
 
@@ -1321,15 +1321,15 @@
   //#define BABYSTEP_WITHOUT_HOMING
   //#define BABYSTEP_XY                     // Also enable X/Y Babystepping. Not supported on DELTA!
   #define BABYSTEP_INVERT_Z false           // Change if Z babysteps should go the other way
-  #define BABYSTEP_MULTIPLICATOR_Z  1       // Babysteps are very small. Increase for faster motion.
+  #define BABYSTEP_MULTIPLICATOR_Z  4       // Babysteps are very small. Increase for faster motion.
   #define BABYSTEP_MULTIPLICATOR_XY 1
 
   #define DOUBLECLICK_FOR_Z_BABYSTEPPING    // Double-click on the Status Screen for Z Babystepping.
   #if ENABLED(DOUBLECLICK_FOR_Z_BABYSTEPPING)
     #define DOUBLECLICK_MAX_INTERVAL 1250   // Maximum interval between clicks, in milliseconds.
                                             // Note: Extra time may be added to mitigate controller latency.
-    //#define BABYSTEP_ALWAYS_AVAILABLE     // Allow babystepping at all times (not just during movement).
-    //#define MOVE_Z_WHEN_IDLE              // Jump to the move Z menu on doubleclick when printer is idle.
+    #define BABYSTEP_ALWAYS_AVAILABLE     // Allow babystepping at all times (not just during movement).
+    #define MOVE_Z_WHEN_IDLE              // Jump to the move Z menu on doubleclick when printer is idle.
     #if ENABLED(MOVE_Z_WHEN_IDLE)
       #define MOVE_Z_IDLE_MULTIPLICATOR 1   // Multiply 1mm by this factor for the move step size.
     #endif
@@ -1337,10 +1337,10 @@
 
   //#define BABYSTEP_DISPLAY_TOTAL          // Display total babysteps since last G28
 
-  //#define BABYSTEP_ZPROBE_OFFSET          // Combine M851 Z and Babystepping
+  #define BABYSTEP_ZPROBE_OFFSET          // Combine M851 Z and Babystepping
   #if ENABLED(BABYSTEP_ZPROBE_OFFSET)
     //#define BABYSTEP_HOTEND_Z_OFFSET      // For multiple hotends, babystep relative Z offsets
-    //#define BABYSTEP_ZPROBE_GFX_OVERLAY   // Enable graphical overlay on Z-offset editor
+    #define BABYSTEP_ZPROBE_GFX_OVERLAY   // Enable graphical overlay on Z-offset editor
   #endif
 #endif
 
@@ -1572,7 +1572,7 @@
 // enter the serial receive buffer, so they cannot be blocked.
 // Currently handles M108, M112, M410
 // Does not work on boards using AT90USB (USBCON) processors!
-//#define EMERGENCY_PARSER
+#define EMERGENCY_PARSER
 
 // Bad Serial-connections can miss a received command by sending an 'ok'
 // Therefore some clients abort after 30 seconds in a timeout.
@@ -2574,7 +2574,7 @@
  * Host Prompt Support enables Marlin to use the host for user prompts so
  * filament runout and other processes can be managed from the host side.
  */
-//#define HOST_ACTION_COMMANDS
+#define HOST_ACTION_COMMANDS
 #if ENABLED(HOST_ACTION_COMMANDS)
   //#define HOST_PROMPT_SUPPORT
 #endif
@@ -2584,7 +2584,7 @@
  *
  * Implement M486 to allow Marlin to skip objects
  */
-//#define CANCEL_OBJECTS
+#define CANCEL_OBJECTS
 
 /**
  * I2C position encoders for closed loop control.
